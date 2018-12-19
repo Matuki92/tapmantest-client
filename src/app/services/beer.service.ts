@@ -7,7 +7,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class BeerService {
 
-  private baseUrl = 'http://localhost:3000/beers';
+  private API_URL = 'http://localhost:3000/beers';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -15,7 +15,7 @@ export class BeerService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/active`, options)
+    return this.httpClient.get(`${this.API_URL}/active`, options)
       .toPromise();
   }
 
@@ -23,7 +23,7 @@ export class BeerService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/all`, options)
+    return this.httpClient.get(`${this.API_URL}/all`, options)
       .toPromise();
   }
 
@@ -31,7 +31,7 @@ export class BeerService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.baseUrl}/new`, beer, options)
+    return this.httpClient.post(`${this.API_URL}/new`, beer, options)
       .toPromise();
   }
 
@@ -39,7 +39,7 @@ export class BeerService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.put(`${this.baseUrl}/edit`, beer, options)
+    return this.httpClient.put(`${this.API_URL}/edit`, beer, options)
       .toPromise();
   }
 }
