@@ -11,6 +11,8 @@ export class VenueService {
   private user: any;
   private userChange: Subject<any> = new Subject();
 
+  private dns = location.host.substr(0, location.host.indexOf('.'));
+
   private API_URL = 'http://localhost:3000/venues';
 
   userChange$: Observable<any> = this.userChange.asObservable();
@@ -21,6 +23,14 @@ export class VenueService {
     this.user = user;
     this.userChange.next(user);
     return user;
+  }
+
+  loadDns(): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.API_URL}/${this.dns}`, options)
+      .toPromise();
   }
 
   me(): Promise<any> {
