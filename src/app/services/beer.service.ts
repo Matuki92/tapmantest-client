@@ -9,13 +9,15 @@ export class BeerService {
 
   private API_URL = 'http://localhost:3000/beers';
 
+  private dns = location.host.substr(0, location.host.indexOf('.'));
+
   constructor(private httpClient: HttpClient) { }
 
   getActive(): Promise<any> {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.API_URL}/active`, options)
+    return this.httpClient.get(`${this.API_URL}/active/${this.dns}`, options)
       .toPromise();
   }
 

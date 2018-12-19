@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BeerService } from '../../services/beer.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  beers: []
+
+  constructor(private beerService: BeerService) { }
 
   ngOnInit() {
+    this.beerService.getActive()
+      .then(data => {
+        this.beers = data.beers;
+      })
+      .catch(err => console.log(err));
   }
 
 }
