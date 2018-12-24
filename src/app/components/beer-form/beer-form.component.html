@@ -1,0 +1,89 @@
+<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+
+    <!-- beer name -->
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && nameField.errors}">
+      <label>Name</label>
+      <input type="text" name="name" [(ngModel)]="beerToEdit.name" #nameField="ngModel" required [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && nameField.errors">
+        <p *ngIf="nameField.errors.required" class="validation">name required</p>
+      </div>
+    </div>
+
+    <!-- beer style -->
+
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && styleField.errors}">
+      <label>Style</label>
+      <input type="text" name="style" [(ngModel)]="beerToEdit.style" #styleField="ngModel" required [disabled]="processing"/>
+      <div *ngIf="feedbackEnabled && styleField.errors">
+        <p *ngIf="styleField.errors.required" class="validation">style required</p>
+      </div>
+    </div>
+
+    <!-- beer abv -->
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && abvField.errors}">
+        <label>Abv</label>
+        <input type="number" name="abv" [(ngModel)]="beerToEdit.abv" #abvField="ngModel" required [disabled]="processing"/>
+        <div *ngIf="feedbackEnabled && abvField.errors">
+          <p *ngIf="abvField.errors.required" class="validation">abv required</p>
+        </div>
+      </div>
+
+    <!-- beer ibu -->
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && ibuField.errors}">
+        <label>Ibu</label>
+        <input type="number" name="ibu" [(ngModel)]="beerToEdit.ibu" #ibuField="ngModel" [disabled]="processing"/>
+      </div>
+
+    <!-- beer brewery -->
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && breweryField.errors}">
+        <label>Brewery</label>
+        <input type="text" name="brewery" [(ngModel)]="beerToEdit.brewery" #breweryField="ngModel" required [disabled]="processing"/>
+        <div *ngIf="feedbackEnabled && breweryField.errors">
+          <p *ngIf="breweryField.errors.required" class="validation">brewery required</p>
+        </div>
+      </div>
+
+    <!-- beer country -->
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && countryField.errors}">
+        <label>Country</label>
+        <input type="text" name="country" [(ngModel)]="beerToEdit.country" #countryField="ngModel" required [disabled]="processing"/>
+        <div *ngIf="feedbackEnabled && countryField.errors">
+          <p *ngIf="countryField.errors.required" class="validation">country required</p>
+        </div>
+      </div>
+
+    <!-- beer price -->
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && priceField.errors}">
+        <label>Price</label>
+        <input type="number" name="price" [(ngModel)]="beerToEdit.price" #priceField="ngModel" required [disabled]="processing"/>
+        <div *ngIf="feedbackEnabled && priceField.errors">
+          <p *ngIf="priceField.errors.required" class="validation">price required</p>
+        </div>
+      </div>
+
+    <!-- beer color -->
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && colorField.errors}">
+        <label>Color</label>
+        <input type="color" name="color" [(ngModel)]="beerToEdit.color" #colorField="ngModel" required [disabled]="processing"/>
+        <div *ngIf="feedbackEnabled && colorField.errors">
+          <p *ngIf="colorField.errors.required" class="validation">color required</p>
+        </div>
+      </div>
+
+    <!-- beer active -->
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && activeField.errors}">
+        <label>Active?</label>
+        <input type="checkbox" name="active" [(ngModel)]="beerToEdit.active" #activeField="ngModel" required [disabled]="processing"/>
+        <div *ngIf="feedbackEnabled && activeField.errors">
+          <p *ngIf="activeField.errors.required" class="validation">active required</p>
+        </div>
+      </div>
+
+    <div class="field submit">
+      <button type="submit" [disabled]="processing">Create</button>
+      <div *ngIf="feedbackEnabled && form.invalid">
+        <p class="validation">there are errors in the form, please review the fields</p>
+      </div>
+    </div>
+  </form>
+  <button (click)="clearForm()">Clear</button>

@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class AdminPageComponent implements OnInit {
 
+  beerToEdit: {} = {};
+
   constructor(private venueService: VenueService, private router: Router) { }
 
   ngOnInit() {
@@ -19,6 +21,10 @@ export class AdminPageComponent implements OnInit {
       .then(() => {
         this.router.navigate(['/login']);
       });
+  }
+
+  editBeer(beer) {
+    this.beerToEdit = beer;
   }
 
 }

@@ -1,1 +1,4 @@
 <button (click)="logout()">Logout</button>
+
+<app-beer-form [beerToEdit]="beerToEdit"></app-beer-form>
+<app-beer-list (selectedBeer)="editBeer($event)"></app-beer-list>

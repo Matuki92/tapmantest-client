@@ -22,6 +22,8 @@ import { BeerService } from './services/beer.service';
 import { InitAuthGuardService } from './guards/init-auth-guard.service';
 import { RequireAnonGuardService } from './guards/require-anon-guard.service';
 import { RequireUserGuardService } from './guards/require-user-guard.service';
+import { BeerFormComponent } from './components/beer-form/beer-form.component';
+import { BeerListComponent } from './components/beer-list/beer-list.component';
 
 const routes: Routes = [
    { path: '',  component: HomePageComponent, canActivate: [ InitAuthGuardService ] },
@@ -35,7 +37,9 @@ const routes: Routes = [
     HomePageComponent,
     AdminPageComponent,
     BeerCardComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    BeerFormComponent,
+    BeerListComponent
   ],
   imports: [
     BrowserModule,

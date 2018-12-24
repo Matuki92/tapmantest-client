@@ -1,0 +1,5 @@
+<div *ngFor="let beer of beers">
+  <div (click)="exportBeer(beer)">
+    <p>{{beer.name}}</p>
+  </div>
+</div>
