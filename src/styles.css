@@ -1,1 +1,99 @@
-/* You can add global styles to this file, and also import other style files */
+
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ---- typography ---- */
+
+@font-face {
+  font-family: goboldbold;
+  src: url('./assets/font/goboldbold.otf');
+}
+
+body {
+  text-transform: uppercase;
+  background: #343334;
+  color: white;
+  font-family: goboldbold;
+  font-size: 20px;
+  line-height: 147%;
+}
+
+h1 {}
+
+h2 {}
+
+h3 {}
+
+p {
+  margin: 0;
+}
+
+
+
+/* ---- layout ---- */
+
+#site-main {
+  margin-bottom: 60px;
+}
+
+.container {
+  margin: 0 20px;
+}
+
+.section {
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+/* @media (min-width: 768px) {
+  .container {
+    max-width: 728px;
+    margin: 0 auto;
+  }
+} */
+
+
+
+
+/* ---- components ---- */
+
+/* Forms */
+
+form label {
+  display: block;
+}
+
+form input {
+  color: #e7c61d;
+  margin-left: 15px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #b95c1d;
+  width: 90%;
+  font-family: inherit;
+  font-size: inherit;
+  margin-bottom: 20px;
+}
+
+form input:focus {
+  outline: none;
+}
+
+form .inline {
+  display: inline-block;
+  margin-right: 30px;
+  margin-bottom: 20px;
+  width: 25%;
+}

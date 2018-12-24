@@ -28,7 +28,26 @@ export class BeerFormComponent implements OnInit {
     this.feedbackEnabled = true;
     if (form.valid) {
       this.processing = true;
+
       this.beerService.addNew(this.beerToEdit)
+        .then((result) => {
+          this.clearForm();
+        })
+        .catch((err) => {
+          this.error = err.error.code;
+        });
+      this.processing = false;
+      this.feedbackEnabled = false;
+    }
+  }
+
+  submitEdit(form) {
+    this.error = '';
+    this.feedbackEnabled = true;
+    if (form.valid) {
+      this.processing = true;
+
+      this.beerService.edit(this.beerToEdit)
         .then((result) => {
           this.clearForm();
         })
