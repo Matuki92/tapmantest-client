@@ -47,7 +47,11 @@ export class VenueService {
       });
   }
 
-  login(user: any): Promise<any> {
+  login(data: any): Promise<any> {
+    const user = {
+      adminpwd: data.adminpwd,
+      dns: this.dns
+    }
     const options = {
       withCredentials: true
     };
@@ -57,10 +61,13 @@ export class VenueService {
   }
 
   logout(): Promise<any> {
+    const data = {
+      dns: this.dns
+    }
     const options = {
       withCredentials: true
     };
-    return this.httpClient.post(`${this.API_URL}/logout`, {}, options)
+    return this.httpClient.post(`${this.API_URL}/logout`, data, options)
       .toPromise()
       .then(() => this.setUser());
   }

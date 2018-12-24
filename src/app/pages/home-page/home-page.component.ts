@@ -8,7 +8,7 @@ import { BeerService } from '../../services/beer.service';
 })
 export class HomePageComponent implements OnInit {
 
-  beers: []
+  beers: [object];
 
   constructor(private beerService: BeerService) { }
 

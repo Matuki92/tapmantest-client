@@ -1,3 +1,18 @@
-<p>
-  login-page works!
-</p>
+<form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+
+    <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">
+        <label>...</label>
+        <input type="password" name="password" [(ngModel)]="password" #passwordField="ngModel" required minlength="6" [disabled]="processing"/>
+        <div *ngIf="feedbackEnabled && passwordField.errors">
+          <p *ngIf="passwordField.errors.required" class="validation">password required</p>
+          <p *ngIf="passwordField.errors.minlength" class="validation">password is too short</p>
+        </div>
+      </div>
+
+    <div class="field submit">
+      <button type="submit" [disabled]="processing">Login</button>
+      <div *ngIf="feedbackEnabled && form.invalid">
+        <p class="validation">there are errors in the form, please review the fields</p>
+      </div>
+    </div>
+  </form>
