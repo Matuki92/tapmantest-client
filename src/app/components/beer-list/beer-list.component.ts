@@ -8,7 +8,9 @@ import { BeerService } from '../../services/beer.service';
 })
 export class BeerListComponent implements OnInit {
 
-  beers: [object];
+  beers: [any];
+  beerList: any;
+  searchWord: string;
 
   @Output() selectedBeer = new EventEmitter();
 
@@ -19,6 +21,13 @@ export class BeerListComponent implements OnInit {
     this.beerService.getAll()
       .then(result => {
         this.beers = result.beers;
+        this.beerList = this.beers;
+      });
+    }
+
+    searchBeer() {
+      this.beerList = this.beers.filter(beer => {
+        return beer.name.includes(this.searchWord);
       });
   }
 

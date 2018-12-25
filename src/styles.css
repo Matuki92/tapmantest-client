@@ -62,7 +62,7 @@ button:hover {
 }
 
 hr {
-  margin: 35px 0;
+  margin: 45px 0;
 }
 
 @media (min-width: 768px) {
@@ -91,7 +91,8 @@ form label {
   display: block;
 }
 
-form input {
+form input,
+.beer-list-search {
   color: #e7c61d;
   background: none;
   border: none;
@@ -103,7 +104,8 @@ form input {
 }
 
 form input:focus,
-form button:focus {
+form button:focus,
+.beer-list-search {
   outline: none;
 }
 
@@ -181,6 +183,14 @@ form span.required {
 }
 
 /* Admin page / beer list */
+
+.beer-list-container {
+  border: 1px solid #e7c61d;
+  padding: 5px;
+  height: 350px;
+  max-height: 350px;
+  overflow-y: scroll;
+}
 
 .beer-list-slot {
   padding: 5px;
