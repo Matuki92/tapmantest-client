@@ -1,5 +1,9 @@
+<h2>All available beers</h2>
+<h3>Select any beer below to edit it</h3>
 <div *ngFor="let beer of beers">
-  <div (click)="exportBeer(beer)">
-    <p>{{beer.name}}</p>
-  </div>
+    <div class="beer-list-slot" [ngStyle]="{'background': beer.color}" (click)="exportBeer(beer)">
+      <p>{{beer.name}}<span class="list-beer-info">
+        ( {{beer.style}}, {{beer.abv}}, {{beer.brewery}}, <p *ngIf="beer.active">On tap</p><p *ngIf="!beer.active">Hidden</p> )
+      </span></p>
+    </div>
 </div>

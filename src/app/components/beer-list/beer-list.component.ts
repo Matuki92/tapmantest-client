@@ -24,6 +24,10 @@ export class BeerListComponent implements OnInit {
 
   exportBeer(beer) {
     this.selectedBeer.emit(beer);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
   }
 
 }

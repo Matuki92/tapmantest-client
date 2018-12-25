@@ -9,11 +9,14 @@ import { Router } from '@angular/router';
 })
 export class AdminPageComponent implements OnInit {
 
+  venue: {};
+
   beerToEdit: {} = {};
 
   constructor(private venueService: VenueService, private router: Router) { }
 
   ngOnInit() {
+    this.venue = this.venueService.getUser();
   }
 
   logout() {

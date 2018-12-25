@@ -1,4 +1,9 @@
-<button (click)="logout()">Logout</button>
+<div id="admin-header">
+  <h2>{{venue.name}}'s Admin panel</h2>
+  <h3>Beer manager</h3>
+  <button (click)="logout()">Logout</button>
+</div>
 
 <app-beer-form [beerToEdit]="beerToEdit"></app-beer-form>
+<hr>
 <app-beer-list (selectedBeer)="editBeer($event)"></app-beer-list>
