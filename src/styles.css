@@ -80,14 +80,15 @@ form input {
   margin-left: 15px;
   background: none;
   border: none;
-  border-bottom: 1px solid #b95c1d;
+  border-bottom: 1px solid #e7c61d;
   width: 90%;
   font-family: inherit;
   font-size: inherit;
   margin-bottom: 20px;
 }
 
-form input:focus {
+form input:focus,
+form button:focus {
   outline: none;
 }
 
@@ -96,4 +97,38 @@ form .inline {
   margin-right: 30px;
   margin-bottom: 20px;
   width: 25%;
+}
+
+form select {
+  width: 100%;
+  font-size: inherit;
+  font-family: inherit;
+  text-transform: inherit;
+}
+
+form .btn {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  width: 45%;
+  border: 1px solid #251912;
+  font-family: inherit;
+  text-transform: inherit;
+  font-size: inherit;
+}
+
+form .btn.submit {
+  background: #e7c61d;
+}
+
+form .btn.edit {
+  background: #b95c1d;
+}
+
+form .btn.clear {
+  background: #950000;
+}
+
+form span.required {
+  color: red;
 }
