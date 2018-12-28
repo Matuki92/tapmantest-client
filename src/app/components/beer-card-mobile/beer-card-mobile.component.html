@@ -1,0 +1,33 @@
+<div>
+    <div class="beer-title">
+      <h1>
+        {{beer.name}}
+      </h1>
+    </div>
+
+
+    <div class="beer-price">
+      <h1>
+        Pint {{beer.price}} €
+      </h1>
+    </div>
+
+    <hr>
+    <div class="beer-details">
+      <p>
+        Beer style: {{beer.style}}
+      </p>
+      <p>
+        Alcohol: {{beer.abv}}%
+      </p>
+      <p>
+        <span *ngIf="beer.ibu">Ibu: {{beer.ibu}}</span>
+      </p>
+      <p>
+        Brewery name: {{beer.brewery}}
+      </p>
+      <p>
+        Country: {{beer.country}}
+      </p>
+    </div>
+  </div>

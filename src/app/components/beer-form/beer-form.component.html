@@ -98,7 +98,7 @@
       </div>
 
     <div class="field">
-      <button class="btn submit" *ngIf="!beerToEdit._id" type="submit" [disabled]="processing">Add new beer</button>
+      <button class="btn submit" *ngIf="!beerToEdit._id" type="submit" [disabled]="processing">Add beer</button>
       <button class="btn edit" *ngIf="beerToEdit._id" type="button" [disabled]="processing" (click)="submitEdit(form)">Save changes</button>
       <button class="btn clear" type="button" (click)="clearForm()">Clear fields</button>
       <div *ngIf="feedbackEnabled && form.invalid">

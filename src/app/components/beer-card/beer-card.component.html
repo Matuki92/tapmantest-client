@@ -1,6 +1,22 @@
-{{beer.name}},
-{{beer.style}},
-{{beer.abv}},
-{{beer.brewery}},
-{{beer.country}},
-{{beer.price}}
+
+  <div class="beer-title">
+    <h1>
+      {{beer.name}}
+    </h1>
+  </div>
+
+  <div class="beer-price">
+    <h1>
+      {{beer.price}} €
+    </h1>
+  </div>
+
+  <div class="beer-details">
+    <p>
+      {{beer.style}} ·
+      {{beer.abv}}% ·
+      <span *ngIf="beer.ibu">{{beer.ibu}} ibu ·</span>
+      {{beer.brewery}} ·
+      {{beer.country}}
+    </p>
+  </div>

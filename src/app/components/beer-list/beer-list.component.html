@@ -2,12 +2,16 @@
 <h3>Select any beer below to edit it</h3>
 <input class="beer-list-search" placeholder="Type to search..." autocomplete="off" type="search" name="search" (keyup)="searchBeer()" [(ngModel)]="searchWord">
 
-<div class="beer-list-container" >
-    <div class="beer-list-slot" *ngFor="let beer of beerList" [ngStyle]="{'background': beer.color}" >
+<div class="beer-list-container">
+
+  <ng-container *ngFor="let beer of beerList">
+    <div class="beer-list-slot" [ngStyle]="{'background': beer.color}">
       <div class="list-left-item" (click)="exportBeer(beer)">
         <p>{{beer.name}}<span class="list-beer-info">
           ( {{beer.style}}, {{beer.abv}}, {{beer.brewery}}, <p *ngIf="beer.active">On tap</p><p *ngIf="!beer.active">Hidden</p> )
         </span></p>
       </div>
     </div>
+
+  </ng-container>
 </div>

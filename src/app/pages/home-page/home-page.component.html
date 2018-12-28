@@ -1,10 +1,44 @@
+<!-- device detect -->
 <span id="state-detector"></span>
+
+<!-- logo section -->
 <div id="site-main">
-    Your logo here
-  </div>
+  <img src="http://guma.tapman.beer/images/full-logo.png" alt="" width="100%">
+</div>
+
+<!-- main beer screen -->
+
+<ng-container *ngIf="!beers">
+  <p>Loading beers...</p>
+</ng-container>
 
 <ng-container *ngIf="beers">
-  <div *ngFor="let beer of beers">
-    <app-beer-card [beer]="beer"></app-beer-card>
+
+  <!-- tv layout -->
+  <div *ngIf="device.type === 'tv'">
+    <div class="layout-container" *ngIf="device.type === 'tv'">
+
+      <ng-container *ngIf="beers.length <= 8">
+        <div class="beer-card-container big" *ngFor="let beer of beers" [ngStyle]="{'background': beer.color}">
+          <app-beer-card [beer]="beer"></app-beer-card>
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="beers.length > 8">
+        <div class="beer-card-container small" *ngFor="let beer of beers" [ngStyle]="{'background': beer.color}">
+          <app-beer-card [beer]="beer"></app-beer-card>
+        </div>
+      </ng-container>
+
+    </div>
   </div>
+
+  <!-- mobile layout -->
+  <div class="layout-container" *ngIf="device.type === 'touch'">
+    <div class="mobile-layout beer-card-container" *ngFor="let beer of beers" [ngStyle]="{'background': beer.color}">
+      <app-beer-card-mobile [beer]="beer"></app-beer-card-mobile>
+    </div>
+  </div>
+
+  <a class="cp-button" [routerLink]="['/admin']" *ngIf="device.type === 'touch'">Control Panel</a>
 </ng-container>
