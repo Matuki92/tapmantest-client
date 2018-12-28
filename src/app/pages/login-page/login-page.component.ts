@@ -21,7 +21,7 @@ export class LoginPageComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   submitForm(form) {
     this.error = '';

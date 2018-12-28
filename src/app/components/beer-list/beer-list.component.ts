@@ -25,10 +25,10 @@ export class BeerListComponent implements OnInit {
       });
     }
 
-    searchBeer() {
-      this.beerList = this.beers.filter(beer => {
-        return beer.name.includes(this.searchWord);
-      });
+  searchBeer() {
+    this.beerList = this.beers.filter(beer => {
+      return beer.name.includes(this.searchWord);
+    });
   }
 
   exportBeer(beer) {
@@ -39,4 +39,7 @@ export class BeerListComponent implements OnInit {
     })
   }
 
+  deleteBeer(beer) {
+    // this.beerService.delete(beer);
+  }
 }

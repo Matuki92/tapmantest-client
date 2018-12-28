@@ -54,7 +54,7 @@ p {
 
 .section {
   margin-bottom: 20px;
-  padding-top: 20px;
+  padding-top: 100px;
 }
 
 button:hover {
@@ -65,9 +65,17 @@ hr {
   margin: 45px 0;
 }
 
+button {
+  padding: 10px;
+  border: 1px solid #251912;
+  font-family: inherit;
+  text-transform: inherit;
+  font-size: inherit;
+}
+
 @media (min-width: 768px) {
   .container {
-    max-width: 728px;
+    width: 90%;
     margin: 0 auto;
   }
 }
@@ -84,7 +92,7 @@ form .form-fields-container {
 
 form .form-fields {
   width: 50%;
-  min-width: 250px;
+  min-width: 300px;
 }
 
 form label {
@@ -131,15 +139,9 @@ form select {
   text-transform: inherit;
 }
 
-form .btn,
-#admin-header button {
+form .btn {
   display: inline-block;
-  padding: 10px;
   width: 48%;
-  border: 1px solid #251912;
-  font-family: inherit;
-  text-transform: inherit;
-  font-size: inherit;
 }
 
 form .btn.submit {
@@ -190,6 +192,7 @@ form span.required {
   height: 350px;
   max-height: 350px;
   overflow-y: scroll;
+  margin-bottom: 20px;
 }
 
 .beer-list-slot {
@@ -208,4 +211,45 @@ form span.required {
 
 .list-beer-info p {
   display: inline-block;
+}
+
+/* Login */
+
+.login {
+  border: 1px solid rgb(192, 192, 192, 0.2);
+  padding: 40px;
+}
+
+/* Home page */
+
+/* device detector */
+
+* default state */
+#state-indicator {
+    position: absolute;
+    top: -999em;
+    left: -999em;
+
+    z-index: 1;
+}
+
+/* small desktop */
+@media all and (max-width: 1200px) {
+    #state-indicator {
+        z-index: 2;
+    }
+}
+
+/* tablet */
+@media all and (max-width: 1024px) {
+    #state-indicator {
+        z-index: 3;
+    }
+}
+
+/* mobile phone */
+@media all and (max-width: 768px) {
+    #state-indicator {
+        z-index: 4;
+    }
 }
