@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class BeerCardMobileComponent implements OnInit {
 
-  @Input() beer: {};
+  @Input() beer: any;
 
   constructor() { }
 

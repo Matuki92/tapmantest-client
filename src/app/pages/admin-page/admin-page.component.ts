@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 })
 export class AdminPageComponent implements OnInit {
 
-  venue: {};
+  venue: any;
 
-  beerToEdit: {} = {};
+  beerToEdit: any = {};
 
   constructor(private venueService: VenueService, private router: Router) { }
 

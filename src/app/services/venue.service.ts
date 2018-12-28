@@ -3,7 +3,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import 'rxjs/add/operator/toPromise';
 
-// import { environment } from '../../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class VenueService {
@@ -13,7 +13,7 @@ export class VenueService {
 
   private dns = location.host.substr(0, location.host.indexOf('.'));
 
-  private API_URL = 'http://localhost:3000/venues';
+  private API_URL = environment.apiUrl + '/venues';
 
   userChange$: Observable<any> = this.userChange.asObservable();
 

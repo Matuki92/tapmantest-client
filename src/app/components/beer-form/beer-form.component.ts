@@ -8,7 +8,7 @@ import { BeerService } from '../../services/beer.service';
 })
 export class BeerFormComponent implements OnInit {
 
-  @Input() beerToEdit: {};
+  @Input() beerToEdit: any;
 
   feedbackEnabled = false;
   error = null;
